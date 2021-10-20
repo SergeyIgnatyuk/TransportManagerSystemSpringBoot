@@ -9,5 +9,4 @@ public class TransportManagerSystemSpringBootApplication {
     public static void main(String[] args) {
         SpringApplication.run(TransportManagerSystemSpringBootApplication.class, args);
     }
-
 }
