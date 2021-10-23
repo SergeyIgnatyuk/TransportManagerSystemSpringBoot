@@ -1,5 +1,6 @@
 package com.service;
 
+import com.exceptions.ResourceNotFoundException;
 import com.model.User;
 import com.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,5 +21,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("User with email: " + email + " Not Found!"));
     }
 }
